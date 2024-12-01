@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+    const userInput = prompt("please enter your buys and sells seperated by a space")
+    const userList = userInput.split(' ')
+    const  validUserInput = []
+
+    const maxProfitCalculator = ((priceList)=>
+    {
+        if(priceList.length < 2){
+            return 0
+        }
+        let profit = 0
+        for(let i = 0;i< priceList.length -1;i++){
+            profit += priceList[i+1]- priceList[i]
+
+        }
+     return profit  
+    })
+
+      userList.forEach(item =>{
+        //consition to check if input is a integer ( lacks negative nbs)
+        if(!isNaN(item) && Number.isInteger(Number(item))){
+          validUserInput.push(Number(item))
+        }
+        else{
+        console.log(`${item} is not a integer`)
+
+        }
+    })
+    const result= maxProfitCalculator(validUserInput)
+    console.log(result)
+
+    
+
+  </script>  
+</body>
+</html>
